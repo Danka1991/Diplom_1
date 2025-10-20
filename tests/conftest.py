@@ -9,6 +9,7 @@ from burger import Burger
 from bun import Bun
 from ingredient import Ingredient
 from ingredient_types import INGREDIENT_TYPE_SAUCE, INGREDIENT_TYPE_FILLING
+from data import TestData
 
 @pytest.fixture
 def burger():
@@ -17,23 +18,23 @@ def burger():
 @pytest.fixture
 def mock_bun():
     mock_bun = Mock(spec=Bun)
-    mock_bun.get_name.return_value = "black bun"
-    mock_bun.get_price.return_value = 100.0
+    mock_bun.get_name.return_value = TestData.mock_bun_name
+    mock_bun.get_price.return_value = TestData.mock_bun_price
     return mock_bun
 
 @pytest.fixture
 def mock_ingredient_sauce():
     mock_ingredient = Mock(spec=Ingredient)
-    mock_ingredient.get_name.return_value = "hot sauce"
-    mock_ingredient.get_price.return_value = 50.0
+    mock_ingredient.get_name.return_value = TestData.mock_sauce_name
+    mock_ingredient.get_price.return_value = TestData.mock_sauce_price
     mock_ingredient.get_type.return_value = INGREDIENT_TYPE_SAUCE
     return mock_ingredient
 
 @pytest.fixture
 def mock_ingredient_filling():
     mock_ingredient = Mock(spec=Ingredient)
-    mock_ingredient.get_name.return_value = "cutlet"
-    mock_ingredient.get_price.return_value = 75.0
+    mock_ingredient.get_name.return_value = TestData.mock_filling_name
+    mock_ingredient.get_price.return_value = TestData.mock_filling_price
     mock_ingredient.get_type.return_value = INGREDIENT_TYPE_FILLING
     return mock_ingredient
 
